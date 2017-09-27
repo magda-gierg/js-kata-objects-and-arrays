@@ -40,22 +40,33 @@ function deleteItemAtIndex (arr, idx) {
 
 // deleteItem should return an array with every instance of `item` removed
 function deleteItem (arr, item) {
+  return arr.filter(function(currentItem) {
+    return currentItem !== item
+  })
 }
 
 // keys should return an array of the object's property names (keys)
 // For example, given {foo: 1, bar: 2} it would return ['foo', 'bar']
 function keys (obj) {
+  return Object.keys(obj)
 }
 
 // values should return an array of the object's own values
 // For example, given { foo: 1, bar: 2} it would return [1, 2]
 function values (obj) {
+  return Object.keys(obj).map(function(prop) {
+   return obj[prop]
+ })
 }
-
 // zipObject should return an object built from two arrays
 // For example, given ['foo', 'bar'] and [1, 2] it would return
 // { foo: 1, bar: 2}
 function zipObject (keys, values) {
+  const newObject = {}
+  for (var i=0; i< keys.length; i++) {
+    const prop = keys[i]
+    newObject[prop] = values[i]
+  } return newObject
 }
 
 // unzipObject should return an array of arrays, each one a pair of keys and values
