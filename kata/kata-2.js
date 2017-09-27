@@ -20,16 +20,22 @@ function getItemAtIndex (arr, idx) {
 
 // replaceItemAtIndex should replace the element at `idx` with `item`
 function replaceItemAtIndex (arr, idx, item) {
+  arr[idx] = item
+  return arr
 }
 
 // insertItemAtIndex should insert `item` at `idx` without overwriting
 // any array values (the array should get longer)
 function insertItemAtIndex (arr, item,  idx) {
+  arr.splice(idx, 0, item)
+  return arr
 }
 
 // deleteItemAtIndex should remove the element at `idx` (the array
 // should get shorter).
 function deleteItemAtIndex (arr, idx) {
+  arr.splice(idx, 1)
+  return arr
 }
 
 // deleteItem should return an array with every instance of `item` removed
