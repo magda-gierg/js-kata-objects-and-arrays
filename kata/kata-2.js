@@ -1,11 +1,21 @@
-// hasItem should return true if `item` is present in `arr` at least once, 
+// hasItem should return true if `item` is present in `arr` at least once,
 // otherwise it should return false.
 function hasItem (arr, item) {
+  for (var i=0; i< arr.length; i++) {
+    if(arr[i] == item) {
+      return true
+    }
+  } return false
 }
 
 // getItemAtIndex should return arr[idx] but only if that index exists:
 // if it doesn't, return a JavaScript Error object.
 function getItemAtIndex (arr, idx) {
+  if (arr[idx]) {
+    return arr[idx]
+  } else {
+    return new Error()
+}
 }
 
 // replaceItemAtIndex should replace the element at `idx` with `item`
@@ -48,10 +58,10 @@ function zipObject (keys, values) {
 function unzipObject(obj) {
 }
 
-// findOneByProperty should return an object from `arr` that has the 
+// findOneByProperty should return an object from `arr` that has the
 // property AND value of `search`. For example, given:
-//   [ { a: 1 }, { b: 2, c: 3 } ] and { b: 2 } 
-// it will return: 
+//   [ { a: 1 }, { b: 2, c: 3 } ] and { b: 2 }
+// it will return:
 //   { b: 2, c: 3 }
 function findOneByProperty (arr, search) {
 }
@@ -64,14 +74,14 @@ function findAll (arr, search) {
 module.exports = {
   hasItem : hasItem,
   getItemAtIndex : getItemAtIndex,
-  replaceItemAtIndex: replaceItemAtIndex, 
-  insertItemAtIndex: insertItemAtIndex, 
+  replaceItemAtIndex: replaceItemAtIndex,
+  insertItemAtIndex: insertItemAtIndex,
   deleteItemAtIndex: deleteItemAtIndex,
   deleteItem: deleteItem,
-  keys: keys, 
-  values: values, 
-  zipObject: zipObject, 
+  keys: keys,
+  values: values,
+  zipObject: zipObject,
   unzipObject: unzipObject,
   findOneByProperty: findOneByProperty,
-  findAll: findAll 
+  findAll: findAll
 }
