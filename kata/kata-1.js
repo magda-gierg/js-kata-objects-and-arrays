@@ -50,6 +50,9 @@ function getGreeting (name) {
 //   'Oh no, an error!'
 // if val evaluates to false
 function returnErrorIfFalsy (val) {
+  if (val == false) {
+    return new Error('Oh no, an error!')
+  }
 }
 
 // Leave this alone for now: it just makes your code visible so it can be tested!
