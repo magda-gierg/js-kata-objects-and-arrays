@@ -64,7 +64,7 @@ function values (obj) {
 function zipObject (keys, values) {
   const newObject = {}
   for (var i=0; i< keys.length; i++) {
-    const prop = keys[i]
+    var prop = keys[i]
     newObject[prop] = values[i]
   } return newObject
 }
@@ -73,6 +73,12 @@ function zipObject (keys, values) {
 // For example, given { foo: 1, bar: 2} it would return
 // [['foo', 1], ['bar', 2]]
 function unzipObject(obj) {
+  const arr = []
+ for (let prop in obj) {
+   const child = [prop, obj[prop]]
+   arr.push(child)
+ }
+ return arr
 }
 
 // findOneByProperty should return an object from `arr` that has the
@@ -81,12 +87,36 @@ function unzipObject(obj) {
 // it will return:
 //   { b: 2, c: 3 }
 function findOneByProperty (arr, search) {
+  let found = null
+  const prop = Object.keys(search)[0]
+  arr.forEach(function (item) {
+    const itemProp = Object.keys(item)[0]
+    if (itemProp === prop && item[prop] === search[prop]) {
+      found = item
+    }
+  })
+  return found
 }
+
 
 // findAll should return an array containing all objects in `arr` that
 // have the property and value of `search`
 function findAll (arr, search) {
-}
+  const found = []
+   const prop = Object.keys(search)[0]
+   arr.forEach(function (item) {
+     const hasKey = Object.keys(item).includes(prop)
+     if (hasKey && item[prop] === search[prop]) {
+       found.push(item)
+     }
+   })
+   return found
+ }
+
+
+
+
+ 
 
 module.exports = {
   hasItem : hasItem,
