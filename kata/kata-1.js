@@ -38,10 +38,12 @@ function makeArrayOfItem (item, length) {
 
 // makeArrayOfItems should return an array containing all arguments passed to it
 function makeArrayOfItems () {
+  return Array.from(arguments)
 }
 
 // getGreeting should return a string containing 'Hello ' and the contents of `name`
 function getGreeting (name) {
+  return "Hello " + name
 }
 
 // returnErrorIfFalsy should return a JavaScript Error object with message:
